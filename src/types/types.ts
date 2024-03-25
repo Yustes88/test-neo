@@ -6,3 +6,9 @@ export type Product = {
   rate: number;
   src: string;
 };
+
+export type FooterLink = {
+  id: string;
+  title: string;
+  url: string;
+};

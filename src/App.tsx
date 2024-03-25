@@ -3,6 +3,7 @@ import "./App.css";
 import Nav from "./components/nav/Nav";
 import { BrowserRouter } from "react-router-dom";
 import Content from "./components/content/Content";
+import Footer from "./components/footer/Footer";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             // errorElement={}
           />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </>
   );

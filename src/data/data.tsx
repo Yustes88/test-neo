@@ -1,7 +1,7 @@
 import { LuHeart } from "react-icons/lu";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { v4 as uuidv4 } from "uuid";
-import { type Product } from "../types/types";
+import { type FooterLink, type Product } from "../types/types";
 
 export const icons = [
   {
@@ -15,6 +15,24 @@ export const icons = [
     src: "/",
     icon: <LuHeart color="#838383" size={22} />,
     total: 0,
+  },
+];
+
+export const footerLinks: FooterLink[] = [
+  {
+    id: uuidv4(),
+    title: "Избранное",
+    url: "/",
+  },
+  {
+    id: uuidv4(),
+    title: "Корзина",
+    url: "/",
+  },
+  {
+    id: uuidv4(),
+    title: "Контакты",
+    url: "/",
   },
 ];
 
@@ -86,5 +104,18 @@ export const wirelessHeadphones: Product[] = [
     newPrice: 7527,
     rate: 4.5,
     src: "/products/wireless-3.png",
+  },
+];
+
+export const languages = [
+  {
+    id: uuidv4(),
+    title: "Ru",
+    url: "/",
+  },
+  {
+    id: uuidv4(),
+    title: "Eng",
+    url: "/",
   },
 ];
