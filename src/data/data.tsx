@@ -64,3 +64,27 @@ export const headphones: Product[] = [
     src: "/products/product-3.png",
   },
 ];
+
+export const wirelessHeadphones: Product[] = [
+  {
+    id: uuidv4(),
+    title: "Apple AirPodsI",
+    newPrice: 9257,
+    rate: 4.7,
+    src: "/products/wireless-1.png",
+  },
+  {
+    id: uuidv4(),
+    title: "GERLAX GH-04",
+    newPrice: 6527,
+    rate: 4.5,
+    src: "/products/wireless-2.png",
+  },
+  {
+    id: uuidv4(),
+    title: "BOROFONE BO4",
+    newPrice: 7527,
+    rate: 4.5,
+    src: "/products/wireless-3.png",
+  },
+];

@@ -4,3 +4,9 @@
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
 }
+
+.list-title {
+  color: #838383;
+  font-weigth: 600;
+  font-size: 20px;
+}

@@ -13,7 +13,7 @@ const ProductsList: FC<ProductsListProps> = ({ title, products }) => {
   return (
     <div className="container">
       <div>
-        <h1>{title}</h1>
+        <h1 className="list-title">{title}</h1>
         <div className="list-grid">
           {products.map((product) => (
             <ProductItem product={product} key={product.id} />
