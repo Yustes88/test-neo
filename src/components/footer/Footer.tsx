@@ -1,20 +1,18 @@
-import "./styles.css";
-import "../../App.css";
-import { useState, type FC } from "react";
-import Logo from "../ui/Logo";
-import { footerLinks, languages } from "../../data/data";
-import { Link } from "react-router-dom";
-import { MdLanguage } from "react-icons/md";
+import './styles.css'
+import '../../App.css'
+import {type FC} from 'react'
+import Logo from '../ui/Logo'
+import {footerLinks, languages, socialMediaLinks} from '../../data/data'
+import {Link, NavLink} from 'react-router-dom'
+import {MdLanguage} from 'react-icons/md'
 
 const Footer: FC = () => {
-  const [active, isActive] = useState(true);
-
   return (
     <div className="container">
       <div className="footer-container">
         <Logo />
-        <div className="footer-links">
-          {footerLinks.map((footerLink) => (
+        <div className="links-container">
+          {footerLinks.map(footerLink => (
             <Link
               to={footerLink.url}
               key={footerLink.id}
@@ -24,26 +22,35 @@ const Footer: FC = () => {
             </Link>
           ))}
         </div>
-        <div>
-          <p>Условия сервиса</p>
+        <div className="lng-container">
+          <span>Условия сервиса</span>
           <div className="footer-lng-link">
             <MdLanguage />
             <ul>
-              {languages.map((language) => (
-                <Link
+              {languages.map(language => (
+                <NavLink
                   key={language.id}
                   to={language.url}
-                  className={`footer-lng`}
+                  className={({isActive}) =>
+                    isActive ? ' footer-lng footer-lng_active' : `footer-lng`
+                  }
                 >
                   {language.title}
-                </Link>
+                </NavLink>
               ))}
             </ul>
           </div>
         </div>
+        <div className="socials-container">
+          {socialMediaLinks.map(socialMediaLink => (
+            <Link to={socialMediaLink.url} key={socialMediaLink.id}>
+              <img src={socialMediaLink.icon} alt="Social media logo" />
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

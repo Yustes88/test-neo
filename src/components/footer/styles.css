@@ -6,7 +6,7 @@
   padding: 1rem;
 }
 
-.footer-links {
+.links-container {
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
@@ -24,4 +24,21 @@
 
 .footer-lng {
   margin-right: 1rem;
+  text-decoration: none;
+}
+
+.footer-lng_active {
+  color: #ffa542;
+}
+
+.socials-container {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.lng-container {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
 }
