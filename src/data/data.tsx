@@ -6,7 +6,7 @@ import { type FooterLink, type Product } from "../types/types";
 export const icons = [
   {
     id: uuidv4(),
-    src: "/",
+    src: "/cart",
     key: "cart",
     icon: <MdOutlineShoppingCart color="#838383" size={22} />,
     total: 0,
