@@ -2,12 +2,32 @@ import { type FC } from "react";
 import { type Product } from "../../types/types";
 import "./styles.css";
 import { CiStar } from "react-icons/ci";
+import { useCartContext } from "../../providers/CartProvider";
 
 type ProductItemProps = {
   product: Product;
 };
 
 const ProductItem: FC<ProductItemProps> = ({ product }) => {
+  const { cartItems, setCartItems } = useCartContext();
+
+  const handleCartUpdate = (product: Product) => {
+    const existingProductIndex = cartItems.findIndex(
+      (item) => item.id === product.id
+    );
+
+    if (existingProductIndex !== -1) {
+      const updatedCartItems = cartItems.map((item, index) =>
+        index === existingProductIndex
+          ? { ...item, total: item.total + 1 }
+          : item
+      );
+      setCartItems(updatedCartItems);
+    } else {
+      setCartItems([...cartItems, { ...product, total: 1 }]);
+    }
+  };
+
   return (
     <div className="product-card">
       <div className="product-image-container">
@@ -24,7 +44,13 @@ const ProductItem: FC<ProductItemProps> = ({ product }) => {
             <CiStar color="#FFCE7F" size={23} fill="#FFCE7F" />
             <span>{product.rate}</span>
           </div>
-          <button className="product-btn" type="button" onClick={() => {}}>
+          <button
+            className="product-btn"
+            type="button"
+            onClick={() => {
+              handleCartUpdate(product);
+            }}
+          >
             Купить
           </button>
         </div>

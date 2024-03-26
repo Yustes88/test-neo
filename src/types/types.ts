@@ -12,3 +12,7 @@ export type FooterLink = {
   title: string;
   url: string;
 };
+
+export type CartItem = Product & {
+  total: number;
+};
