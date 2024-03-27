@@ -4,6 +4,9 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 2rem;
   padding: 1rem;
+  background-color: #ffffff;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
 }
 
 .links-container {

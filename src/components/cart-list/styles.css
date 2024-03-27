@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   gap: 1rem;
-  min-height: 59vh;
+  min-height: calc(100vh - 74px - 140px);
 }
 
 .cart-list {
@@ -12,7 +12,7 @@
 }
 
 .empty-cart {
-  min-height: calc(100vh - 130px - 136px - 2rem);
+  min-height: calc(100vh - 74px - 160px);
   text-align: center;
   padding: 1rem;
 }
