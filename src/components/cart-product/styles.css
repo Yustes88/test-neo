@@ -6,8 +6,9 @@
   grid-template-rows: 2fr 1fr;
   background-color: #ffffff;
   border-radius: 30px;
-  gap: 1rem;
+  column-gap: 1rem;
   padding: 1rem;
+  box-sizing: border-box;
 }
 
 .cart-image-container {
@@ -45,9 +46,20 @@
 .cart-total-btns {
   justify-self: center;
   align-self: center;
+  display: flex;
+  align-items: center;
 }
 
 .cart-total-btn {
   border: none;
   background-color: transparent;
+  cursor: pointer;
+}
+
+.cart-final-price {
+  grid-column: 3;
+  grid-row: 2;
+  justify-self: end;
+  color: #1c1c27;
+  font-weight: 600;
 }

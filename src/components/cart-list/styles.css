@@ -1,3 +1,8 @@
+.cart-container {
+  display: flex;
+  justify-content: space-between;
+}
+
 .cart-list {
   display: flex;
   flex-direction: column;
