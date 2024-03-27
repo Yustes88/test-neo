@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-between;
   gap: 1rem;
+  min-height: 59vh;
 }
 
 .cart-list {
@@ -11,7 +12,9 @@
 }
 
 .empty-cart {
-  height: 100vh;
+  min-height: calc(100vh - 130px - 136px - 2rem);
+  text-align: center;
+  padding: 1rem;
 }
 
 @media only screen and (max-width: 750px) {
