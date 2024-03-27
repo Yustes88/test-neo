@@ -8,7 +8,7 @@ const CartList = () => {
   const { cartItems } = useCartContext();
 
   if (!cartItems || cartItems.length === 0) {
-    return <div>Cart is empty</div>;
+    return <div className="empty-cart">Cart is empty</div>;
   }
 
   return (

@@ -1,4 +1,5 @@
 import React, { type FC, createContext, useState, useContext } from "react";
+
 import { type CartItem } from "../types/types";
 
 type CartContextProps = {

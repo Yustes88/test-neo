@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { icons } from "../../data/data";
 import { type FC } from "react";
 import { useCartContext } from "../../providers/CartProvider";
+import IconLink from "../ui/IconButton";
 
 const Nav: FC = () => {
   const { cartItems } = useCartContext();
@@ -20,12 +21,12 @@ const Nav: FC = () => {
         <div>
           <ul className="icons-list">
             {icons.map((icon) => (
-              <Link to={icon.src} className="icon-link" key={icon.id}>
+              <IconLink toPath={icon.src} className={"icon-link"} key={icon.id}>
                 {icon.icon}
                 <span className="icon-badge">
                   {icon.key === "cart" ? total : 0}
                 </span>
-              </Link>
+              </IconLink>
             ))}
           </ul>
         </div>

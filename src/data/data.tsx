@@ -1,24 +1,15 @@
 import { LuHeart } from "react-icons/lu";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { v4 as uuidv4 } from "uuid";
-import { type FooterLink, type Product } from "../types/types";
-
-export const icons = [
-  {
-    id: uuidv4(),
-    src: "/cart",
-    key: "cart",
-    icon: <MdOutlineShoppingCart color="#838383" size={22} />,
-    total: 0,
-  },
-  {
-    id: uuidv4(),
-    src: "/",
-    key: "favourites",
-    icon: <LuHeart color="#838383" size={22} />,
-    total: 0,
-  },
-];
+import {
+  type Route,
+  type FooterLink,
+  type Product,
+  type SocialLink,
+  type Language,
+} from "../types/types";
+import ProductsList from "../components/products-list/ProductsList";
+import CartList from "../components/cart-list/CartList";
 
 export const footerLinks: FooterLink[] = [
   {
@@ -109,7 +100,24 @@ export const wirelessHeadphones: Product[] = [
   },
 ];
 
-export const languages = [
+export const icons = [
+  {
+    id: uuidv4(),
+    src: "/cart",
+    key: "cart",
+    icon: <MdOutlineShoppingCart color="#838383" size={22} />,
+    total: 0,
+  },
+  {
+    id: uuidv4(),
+    src: "/",
+    key: "favourites",
+    icon: <LuHeart color="#838383" size={22} />,
+    total: 0,
+  },
+];
+
+export const languages: Language[] = [
   {
     id: uuidv4(),
     title: "Ru",
@@ -122,7 +130,41 @@ export const languages = [
   },
 ];
 
-export const socialMediaLinks = [
+export const routes: Route[] = [
+  {
+    id: uuidv4(),
+    path: "/",
+    component: (
+      <>
+        <ProductsList title={"Наушники"} products={headphones} />
+        <ProductsList
+          title={"Беспроводные наушники"}
+          products={wirelessHeadphones}
+        />
+      </>
+    ),
+  },
+  {
+    id: uuidv4(),
+    path: "/cart",
+    component: <CartList />,
+  },
+  {
+    id: uuidv4(),
+    path: "/eng",
+    component: (
+      <>
+        <ProductsList title={"Headphones"} products={headphones} />
+        <ProductsList
+          title={"Wireless headphones"}
+          products={wirelessHeadphones}
+        />
+      </>
+    ),
+  },
+];
+
+export const socialMediaLinks: SocialLink[] = [
   {
     id: uuidv4(),
     url: "https://vk.com",
