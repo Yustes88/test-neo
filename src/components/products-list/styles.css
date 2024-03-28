@@ -3,10 +3,24 @@
   grid-auto-rows: 1fr;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
 .list-title {
   color: #838383;
-  font-weigth: 600;
+  font-weight: 600;
   font-size: 20px;
+}
+
+@media only screen and (max-width: 1150px) {
+  .list-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .list-grid {
+    grid-template-columns: 1fr;
+  }
 }
