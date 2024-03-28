@@ -1,5 +1,7 @@
 import { useCartContext } from "../../providers/CartProvider";
 import "./styles.css";
+import "../../App.css";
+import Button from "../ui/Button";
 
 const TotalPriceCart = () => {
   const { cartItems } = useCartContext();
@@ -15,7 +17,14 @@ const TotalPriceCart = () => {
         <span>&#x20bd; {totalPrice}</span>
       </div>
       <div>
-        <button className="total-btn">Перейти к оформлению</button>
+        <Button
+          className={"btn"}
+          type={"button"}
+          onClick={() => {}}
+          disabled={true}
+        >
+          Перейти к оформлению
+        </Button>
       </div>
     </div>
   );

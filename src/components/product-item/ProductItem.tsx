@@ -1,32 +1,21 @@
 import { type FC } from "react";
 import { type Product } from "../../types/types";
 import "./styles.css";
-import { CiStar } from "react-icons/ci";
+import "../../App.css";
+
+import { FaStar } from "react-icons/fa6";
 import { useCartContext } from "../../providers/CartProvider";
+import { useNavigate } from "react-router";
+import Button from "../ui/Button";
+import { handleCartUpdate } from "../utils/utils";
 
 type ProductItemProps = {
   product: Product;
 };
 
 const ProductItem: FC<ProductItemProps> = ({ product }) => {
+  const router = useNavigate();
   const { cartItems, setCartItems } = useCartContext();
-
-  const handleCartUpdate = (product: Product) => {
-    const existingProductIndex = cartItems.findIndex(
-      (item) => item.id === product.id
-    );
-
-    if (existingProductIndex !== -1) {
-      const updatedCartItems = cartItems.map((item, index) =>
-        index === existingProductIndex
-          ? { ...item, total: item.total + 1 }
-          : item
-      );
-      setCartItems(updatedCartItems);
-    } else {
-      setCartItems([...cartItems, { ...product, total: 1 }]);
-    }
-  };
 
   return (
     <div className="product-card">
@@ -36,25 +25,40 @@ const ProductItem: FC<ProductItemProps> = ({ product }) => {
       <div>
         <div className="product-name-price">
           <h2 className="product-name">{product.title}</h2>
-          <span className="product-price">{product.newPrice} &#x20bd;</span>
-          {/* <p>Old price</p> */}
+          <div className="product-price">
+            <span>{product.newPrice} &#x20bd;</span>
+            {product.oldPrice && (
+              <s className="old-price">{product.oldPrice} &#x20bd;</s>
+            )}
+          </div>
         </div>
         <div className="product-rate-btn">
           <div className="product-rate">
-            <CiStar color="#FFCE7F" size={23} fill="#FFCE7F" />
+            <FaStar color={"#FFCE7F"} size={23} fill={"#FFCE7F"} />
             <span>{product.rate}</span>
           </div>
-          <button
-            className="product-btn"
-            type="button"
-            onClick={() => {
-              handleCartUpdate(product);
-            }}
+          <Button
+            className={"product-btn"}
+            type={"button"}
+            disabled={false}
+            onClick={() =>
+              handleCartUpdate({ product, cartItems, setCartItems })
+            }
           >
-            Купить
-          </button>
+            {"Купить"}
+          </Button>
         </div>
       </div>
+      <Button
+        className={"btn"}
+        type={"button"}
+        disabled={false}
+        onClick={() => {
+          router(`/product/${product.id}`);
+        }}
+      >
+        Посмотреть
+      </Button>
     </div>
   );
 };
