@@ -26,7 +26,7 @@ export type CartItem = Product & {
 
 export type Route = {
   id: string;
-  path: string;
+  path?: string;
   component: JSX.Element;
 };
 

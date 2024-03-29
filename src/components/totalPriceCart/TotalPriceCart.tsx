@@ -7,7 +7,6 @@ import { useState } from "react";
 const TotalPriceCart = () => {
   const [isLoading, setIsLoading] = useState(false);
   const { cartItems } = useCartContext();
-  console.log(isLoading);
 
   const totalPrice = cartItems.reduce((item1, item2) => {
     return item1 + item2.newPrice * item2.total;

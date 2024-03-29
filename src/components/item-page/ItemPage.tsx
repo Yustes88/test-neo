@@ -6,6 +6,7 @@ import { type Product } from "../../types/types";
 import { getItemById, handleCartUpdate } from "../utils/utils";
 import Button from "../ui/Button";
 import { useCartContext } from "../../providers/CartProvider";
+import ItemPageEmpty from "./ItemPageEmpty";
 
 const ItemPage = () => {
   const { cartItems, setCartItems } = useCartContext();
@@ -14,11 +15,7 @@ const ItemPage = () => {
   const product: Product | undefined = getItemById(id);
 
   if (!product || !id) {
-    return (
-      <div className="container page-container">
-        "We couldn't find the product, please try again";
-      </div>
-    );
+    return <ItemPageEmpty />;
   }
 
   return (

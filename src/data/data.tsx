@@ -12,6 +12,7 @@ import ProductsList from "../components/products-list/ProductsList";
 import CartList from "../components/cart-list/CartList";
 import Parked from "../components/parked/Parked";
 import ItemPage from "../components/item-page/ItemPage";
+import ErrorElement from "../components/error/Error";
 
 export const footerLinks: FooterLink[] = [
   {
@@ -196,6 +197,11 @@ export const routes: Route[] = [
     id: uuidv4(),
     path: "/product/:id",
     component: <ItemPage />,
+  },
+  {
+    id: uuidv4(),
+    path: "*",
+    component: <ErrorElement />,
   },
 ];
 
