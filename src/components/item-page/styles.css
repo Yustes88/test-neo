@@ -1,0 +1,14 @@
+.page-container {
+  min-height: calc(100vh - 74px - 140px);
+}
+
+.item-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
+  gap: 2rem;
+  background-color: #ffffff;
+  max-height: calc(100vh - 74px - 140px);
+  height: 100%;
+  width: 100%;
+}

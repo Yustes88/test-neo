@@ -1,7 +1,11 @@
 import { useCartContext } from "../../providers/CartProvider";
 import "./styles.css";
+import "../../App.css";
+import Button from "../ui/Button";
+import { useState } from "react";
 
 const TotalPriceCart = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const { cartItems } = useCartContext();
 
   const totalPrice = cartItems.reduce((item1, item2) => {
@@ -15,7 +19,21 @@ const TotalPriceCart = () => {
         <span>&#x20bd; {totalPrice}</span>
       </div>
       <div>
-        <button className="total-btn">Перейти к оформлению</button>
+        <Button
+          className={"btn"}
+          type={"button"}
+          onClick={() => {
+            setIsLoading(true);
+            setTimeout(() => {
+              alert(
+                "Currently payment is not available, please try again later"
+              );
+              setIsLoading(false);
+            }, 2000);
+          }}
+        >
+          {isLoading ? "Идёт оформление" : "Перейти к оформлению "}
+        </Button>
       </div>
     </div>
   );

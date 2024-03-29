@@ -1,3 +1,7 @@
+.list-empty {
+  height: calc(50vh - 197px);
+}
+
 .list-grid {
   display: grid;
   grid-auto-rows: 1fr;

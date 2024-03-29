@@ -15,9 +15,15 @@ const ProductsList: FC<ProductsListProps> = ({ title, products }) => {
       <div>
         <h1 className="list-title">{title}</h1>
         <div className="list-grid">
-          {products.map((product) => (
-            <ProductItem product={product} key={product.id} />
-          ))}
+          {!products || products.length === 0 ? (
+            <div className="list-empty">
+              Currently there are no products available
+            </div>
+          ) : (
+            products.map((product) => (
+              <ProductItem product={product} key={product.id} />
+            ))
+          )}
         </div>
       </div>
     </div>

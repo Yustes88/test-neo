@@ -17,7 +17,7 @@ type CartProviderProps = {
 
 export const CartContextProvider: FC<CartProviderProps> = ({ children }) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
-  console.log(cartItems);
+
   return (
     <CartContext.Provider
       value={{

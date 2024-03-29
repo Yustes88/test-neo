@@ -17,6 +17,7 @@ export type Product = {
   oldPrice?: number;
   rate: number;
   src: string;
+  description: string;
 };
 
 export type CartItem = Product & {
@@ -25,7 +26,7 @@ export type CartItem = Product & {
 
 export type Route = {
   id: string;
-  path: string;
+  path?: string;
   component: JSX.Element;
 };
 
